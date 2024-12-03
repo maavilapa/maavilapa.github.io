@@ -2,11 +2,7 @@
   "basics": {
     "name": "Mateo Avila Pava",
     "label": "MSc Student of Medical Robotics at FAU",
-    "image": "",
-    "email": "mateo.avila@fau.de",
-    "phone": "",
-    "url": "https://maavilapa.github.io",
-    "summary": "I am a responsible, dedicated, and committed person, passionate about Soccer and Artificial Intelligence. I like tackling new challenges and staying at the forefront of advancements in AI and robotics. With experience as a Data Scientist and Deep Learning Engineer, and ongoing Master's research focused on Evolutionary NAS, I embrace a proactive approach to my work. My daily motivation comes from my family, my thirst for knowledge, and my drive to apply cutting-edge technologies to help solving the problems our society faces."
+    "email": "mateo.avila@fau.de"
   },
   "work": [
     {
