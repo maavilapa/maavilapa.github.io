@@ -6,32 +6,28 @@
   },
   "work": [
     {
-      "name": "DLR(Deutsches Zentrum für Luft- und Raumfahrt) (Weßling, Germany)",
+      "name": "DLR (Deutsches Zentrum für Luft- und Raumfahrt) (Weßling, Germany)",
       "position": "Werkstudent – CLASH hand design and development",
       "startDate": "2020-03-01",
-      "endDate": "2020-10-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus."
+      "endDate": "2020-10-01"
     },
     {
       "name": "DATUP.ai (Bogotá, Colombia)",
       "position": "Data Scientist specialized in Deep Learning",
       "startDate": "2021-04-01",
-      "endDate": "2022-09-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus."
+      "endDate": "2022-09-01"
     },
     {
       "name": "Fraunhofer IIS (Erlangen, Germany)",
       "position": "Student Research Assistant– Medical Sensor Systems",
       "startDate": "2023-02-01",
-      "endDate": "2024-10-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus."
+      "endDate": "2024-10-01"
     },
     {
-      "name": "Department Artificial Intelligence in Biomedical Engineering (AIBE)- Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) (Erlangen, Germany)",
-      "position": "Student Research Assistant– AnKI Lab",
+      "name": "Department Artificial Intelligence in Biomedical Engineering (AIBE) - Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) (Erlangen, Germany)",
+      "position": "Student Research Assistant – AnKI Lab",
       "startDate": "2024-06-01",
-      "endDate": "2025-03-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus."
+      "endDate": "2025-03-01"
     }
   ],
   "education": [
@@ -52,7 +48,7 @@
     {
       "institution": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
       "location": "Erlangen, Germany",
-      "studyType": "MSc in Medical Engineering- Medical Robotics Specialization",
+      "studyType": "MSc in Medical Engineering - Medical Robotics Specialization",
       "startDate": "2022-10-01",
       "endDate": "2024-11-01"
     }
