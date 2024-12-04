@@ -1,11 +1,11 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: HexBug Head Tracking
+description: Framework to track a freely and randomly moving object (“HexBug”) head from a video, within the context of the Tracking Olympiad (TRACO) course.
+img: assets/img/project1/results_test001.gif
 importance: 1
-category: work
-related_publications: true
+category: study
+related_publications: false
 ---
 
 Every project has a beautiful feature showcase page.
