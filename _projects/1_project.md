@@ -4,7 +4,7 @@ title: HexBug Head Tracking
 description: Framework to track a freely and randomly moving object (“HexBug”) head from a video, within the context of the Tracking Olympiad (TRACO) course.
 img: assets/img/project1/results_test001.gif
 importance: 1
-category: study
+category: work
 related_publications: false
 ---
 
