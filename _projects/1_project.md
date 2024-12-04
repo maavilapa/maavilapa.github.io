@@ -37,13 +37,14 @@ The pipeline is illustrated in the following image.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/project1/presentation.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/project1/presentation.png" title="example image" class="img-fluid rounded z-depth-1" style="width: 25%; height: auto;" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Pipeline of our framework for HexBug head tracking.
 </div>
 
+We show two additional examples of our solution:
 <div class="row justify-content-sm-center">
     <div class="col-sm-4 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project1/results_video_5a.gif" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -52,6 +53,4 @@ The pipeline is illustrated in the following image.
         {% include figure.liquid path="assets/img/project1/results_test002.gif" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Two additional examples of our solution.
-</div>
+
