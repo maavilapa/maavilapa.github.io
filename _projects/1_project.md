@@ -34,12 +34,13 @@ Our solution is composed of four steps:
 
 The pipeline is illustrated in the following image.
 
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/project1/presentation.png" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-4 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project1/presentation.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+
 <div class="caption">
     Pipeline of our framework for HexBug head tracking.
 </div>
