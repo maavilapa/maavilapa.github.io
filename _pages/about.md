@@ -16,7 +16,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a responsible, dedicated, and committed person, passionate about Soccer and Artificial Intelligence. I like tackling new challenges and staying at the forefront of advancements in AI and robotics 🤖.
+I am a responsible, dedicated, and committed person, passionate about Artificial Intelligence. I like tackling new challenges and staying at the forefront of advancements in AI and robotics 🤖.
 
  With experience as a Data Scientist and Deep Learning Engineer 🧑‍💻, and a Master's thesis focused on making Evolutionary Neural Architecture Search (NAS) more efficient and generalizable, I embrace a proactive approach to my work 💡. My daily motivation comes from my family, my thirst for knowledge, and my drive to apply cutting-edge technologies to help solve the problems our society faces 🌍.
  

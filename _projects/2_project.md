@@ -7,75 +7,68 @@ importance: 2
 category: study
 related_publications: false
 ---
-For the SS2023 Tracking Olympiad course at FAU, we had to propose a solution in groups of three to gain hands-on experience as AI developers. The task involved tracking the heads of all the HexBugs visible in a 10-second video, under various background conditions while maintaining a static background.
+Robots have excelled at operating in controlled environments since their introduction to industry over half a century ago.
 
-A set of videos containing the ground-truth positional information was provided at the beginning of the course. The team's score was evaluated by applying the tracking algorithm to previously unseen or withheld videos at the end of the course and we achieved the second place between 7 groups.
+However, logistics companies, e-commerce platforms, and even supermarkets, which manage a diverse range of products, require high flexibility to efficiently organize and pack items. Currently, there are only a few robotic solutions capable of meeting these demands. To address this challenge, Amazon launched the Amazon Robotics Challenge (ARC) in 2015. The competition aimed to advance research in warehouse automation, particularly in unstructured environments, focusing on robotic systems for product picking and storage.
 
-
+At the National University of Colombia in 2021, we simulated this setup with an industrial robot from LabSIR (Laboratory of Intelligent Robotized Systems), initially using ROS + Gazebo and later implementing it physically, as shown in the following image. The setup consists of a shelf, a drawer, the robot, and a camera mounted on the drawer. In this case, we used the Kinect camera because it provides depth measurement capabilities.
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project2/APC_1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pipeline of our framework for HexBug head tracking.
+    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
 </div>
-
+The Kinect sensor is mounted on the robot, pointing directly at the drawer containing the objects. The following image shows the Kinect's view: on the left, the Gazebo simulation; in the center, the RGB camera; and on the right, the depth camera.
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project2/APC_2.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pipeline of our framework for HexBug head tracking.
+View from the Kinect sensor:
 </div>
-
+Processing of the depth image to determine the optimal position for grasping objects, captured by the Kinect using Generative Grasping Convolutional Networks (GGCNN). This network outputs the angle, quality, and width of the grasping options.
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project2/APC_2a.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pipeline of our framework for HexBug head tracking.
+Pipeline for processing the output of the GGCNN model.
 </div>
-
+We present an example of a real image captured by the Kinect (top), the raw output of the GGCNN (bottom right), and the final post-processed positions and orientations of the grasps for the objects in the box, overlaid on the depth image.
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project2/APC_3.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pipeline of our framework for HexBug head tracking.
+Image captured by the Kinect, along with the GGCNN model output and the pipeline for generating the grasping options that the robot will execute.
 </div>
 
+Our framework also works in scenarios with a high density of objects, prioritizing those that are easier to grasp based on the size of the robot's hand. Objects positioned very close to the sides of the box are assigned a lower grasping quality.
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project2/APC_4.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pipeline of our framework for HexBug head tracking.
+    Grasping detections in the case where the box is full.
 </div>
-
+We recorded a video demonstrating our framework with no human intervention, randomly placing objects in the box: [Link to video](https://www.youtube.com/watch?v=Xct78P9-zjw&ab_channel=Mateo%C3%81vila).
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0"> <!-- Increase column width -->
         {% include figure.liquid path="assets/img/project2/APC_5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pipeline of our framework for HexBug head tracking.
+    Screenshots from the videos showing our framework working with the industrial robot in LabSIR, operating without any human intervention.
 </div>
 
 
 
-
-
-Our solution is composed of four steps:
-
-1. **HexBug detection** (YOLO-NAS) followed by box filtering (ViBe) based on background subtraction and Non-Maximum Supression (NMS)
-2. **Object tracking** and box interpolation (CLIP-ViT + K-means)
-3. **HexBug-agnostic segmentation** (FastSAM)
-4. **Head position estimation** based on an ellipsoid representation of the HexBugs
 
 
 
