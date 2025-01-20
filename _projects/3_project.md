@@ -14,23 +14,11 @@ related_publications: false
         {% include figure.liquid path="assets/img/project3/fig_8.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 ## Business case: Time series forecasting with Temporal Fusion Transformer (TFT) in Rossman store sales dataset
 Most advanced methods applied on time series include deep learning models, specially for complex multivariate forecasting problems. One of them, the Temporal fusion transformers (TFT), has demonstrated significant performance improvements over existing benchmarks and is currently one of the most accurate methods in forecasting. Although it is an advanced model, its implementation in the pytorch_forecasting library is user friendly and provides all the necessary functions to plot and interpret the model predictions. Besides, if it is combined with tools like tensorboard, tensorflow data validation and featurewiz, we can create a pipeline to prepare, add features and predict data in time series datasets in a flexible and understandable way. 
 
 I will show this process using the Rossman store sales dataset, one of the open timeseries datasets available in Kaggle. We are provided with historical sales data for 1,115 Rossmann stores, using not just the sales historical of each store, but information about promotions, number of clients and holidays. Some stores in the dataset were temporarily closed for refurbishment and therefore, we have to clean the data and fill the missing values. The data frequency is daily and we have to predict the "Sales" for some of the stores given in the test set in the next 48 days. This is an interesting and useful AI application field because sellers could take advantage of this kind of predictions during their inventory planning, particularly when a lot of data about products sales and promotions in each store is available. 
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/project2/fig_0.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 
 ## Technologies used
@@ -57,9 +45,6 @@ The first step is to import the necessary libraries defined in the requirements.
         {% include figure.liquid path="assets/img/project3/fig1.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 For categorical features we can check not just the missing values, but also the Top value and the unique values.
 
@@ -68,10 +53,6 @@ For categorical features we can check not just the missing values, but also the 
         {% include figure.liquid path="assets/img/project3/fig_4.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 We found that Promo2SinceYear, Promo2SinceWeek, CompetitionOpenSinceMonth, CompetitionOpenSinceYear and PromoInterval have more than 30% of missing values. CompetitionDistance has 0.26% of missing values. We will drop the first two columns and fill the missing values in the CompetitionDistance column to use it as a training feature. We merge the Train and Store dataframes. We check the number of missing values by columns using the next line: 
   
@@ -83,12 +64,8 @@ train_data.isnull().sum()
         {% include figure.liquid path="assets/img/project3/fig_4a.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 We check that there are 2642 missing values of the 1017209 rows and records. If we look at which are the stores with missing values we find the following 3 stores: <strong>[291 622 879]</strong>.
-<br>
 
 #### 1.2. Filling missing values
 <a name="Filling_missing_values"></a>
@@ -105,9 +82,6 @@ It is necessary to check if a store has more than one Sales record for each uniq
         {% include figure.liquid path="assets/img/project3/fig_4b.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 
 We found that from 1115 stores, 934 have sales recorded for all the 942 days considered in the train data, while 180 Stores have just 758 sales recorded and 1 has 941 days. We filter the stores that have missing sales values and can plot the historical sales for some of these stores.
@@ -120,9 +94,6 @@ train_data[["Date", "Store", "Sales"]][train_data.Store==539].set_index("Date").
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project3/fig_4c.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
 </div>
 
 
@@ -140,10 +111,6 @@ train_data[["Date", "Store", "Sales"]][train_data.Store==539].set_index("Date")[
         {% include figure.liquid path="assets/img/project3/fig_4e.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 This way we verify that all the stores have all their historical data filled. 
 
@@ -159,9 +126,6 @@ We add a time_idx column necessary for training with temporal fusion transformer
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project3/fig_4g.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
 </div>
 
   
@@ -215,9 +179,6 @@ training.data
         {% include figure.liquid path="assets/img/project3/fig_4h.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 
 We use the baseline model of pytorch forecasting that uses last known target value to make predictions and calculate baseline performance in terms of mean absolute error (MAE):
@@ -243,9 +204,6 @@ We tune the temporal fusion transformer using 50 epochs and 15 trials, using the
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project3/fig_4i.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
 </div>
 
 
@@ -293,9 +251,6 @@ print(study.best_trial.params)
         {% include figure.liquid path="assets/img/project3/fig_6.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 
 With tensorboard we can also check the hyperparameters and plot the validation and train loss metrics vs each epoch for all the models trained. To open tensorboard in colab, it is necessary to type two magic commands:
@@ -312,10 +267,6 @@ Where lightning_logs is the folder with the training logs defined in the optimiz
         {% include figure.liquid path="assets/img/project3/fig_7a.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
   
 We could make the same analysis for the training loss in order to check if the model is overfitting or having some problems while training. 
 
@@ -324,10 +275,6 @@ We could make the same analysis for the training loss in order to check if the m
         {% include figure.liquid path="assets/img/project3/fig_7b.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 From both validation and training loss curves we see that in both cases the best model is the version_2 model. Both losses improved after each epoch and the gap between the curves at the last epoch is close to 0.002, so we check that the model is not overfitting and that probably we could improve the results by using more epochs and a callback like a learning rate scheduler. Since we are also tuning the learning rate, we could explore the learning rate behavior for each model. 
 
@@ -338,10 +285,6 @@ The learning rate remained constant throughout the training for all models, alth
         {% include figure.liquid path="assets/img/project3/fig_7.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 Finally, one of the most important plot we can find in tensorboard thanks to the tensorflow and pytorch_forecasting functions is the validation predictions vs real sales for each one of the stores. We show the predictions for the stores 1, 1115 and 706, where the blue curves are the historical sales and the orange one are the predictions. 
   
@@ -350,10 +293,6 @@ Finally, one of the most important plot we can find in tensorboard thanks to the
         {% include figure.liquid path="assets/img/project3/fig_8.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 From the predictions it can be seen that the model takes into account the days when the stores are closed as well as the trends for each day and week depending on the store. However, for some cases it underestimates sales, probably because the information from the second promotion was not included in the dataset.
 
@@ -370,19 +309,12 @@ best_tft.plot_interpretation(interpretation)
         {% include figure.liquid path="assets/img/project3/fig_11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project3/fig_13.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 From the first plot, which shows the attention given to each time index in the encoder, we can see which days were the most important in the sales history in general for all the stores. Regarding the encoder features, the most important is the sales columns, followed by the DayOfWeek, promotions and Open, which indicates if the store was open. In the decoder, the most important variables the Open flag, DayOfWeek and Promo columns. This was expected, since it is clear that when the store is closed there are no sales and that these sales depend a lot on the day of the week and promotions.
 
@@ -407,10 +339,6 @@ for idx in range(0,2):
         {% include figure.liquid path="assets/img/project3/fig_15.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 As we can see in the plots, the predictions are also scaled between -1 and 1, so we have to rescale them before the submission in Kaggle. We check now for the first store if the sales values are in the original train data scale. 
   
@@ -423,10 +351,6 @@ predict[predict.Store == "1.0"].set_index("timestamp")[["p50"]].plot()
         {% include figure.liquid path="assets/img/project3/fig_17.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
-</div>
-
 
 The last step is to clean and format the prediction DataFrame to the sample_submission format given in Kaggle. To do that, we take only the positive predictions and set to zero the ones that are negatives, merge the predict dataframe with the test data Id and make the submission. 
   
