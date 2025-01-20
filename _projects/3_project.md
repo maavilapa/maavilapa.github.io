@@ -60,7 +60,7 @@ We found that Promo2SinceYear, Promo2SinceWeek, CompetitionOpenSinceMonth, Compe
 train_data.isnull().sum()
 ```
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
+    <div class="col-sm-4 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/project3/fig_4a.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
@@ -97,7 +97,7 @@ train_data[["Date", "Store", "Sales"]][train_data.Store==539].set_index("Date").
 </div>
 
 
-According to the plot, for some reason there were no sales for this store between July, 2014 and january 2015. This was the case for all the 180 stores closed for refurbishment with 184 missing values. We reindex the dates from the start date (2013-01-01) to the end date recorded (2015-07-31) so that all stores have the same dates. After we have expanded the dataset with the missing dates we have 1050330 rows and we check again the columns with missing values:
+According to the plot, for some reason there were no sales for this store between July, 2014 and january 2015. This was the case for all the 180 stores closed for refurbishment with 184 missing values. We reindex the dates from the start date (2013-01-01) to the end date recorded (2015-07-31) so that all stores have the same dates. After we have expanded the dataset with the missing dates we have 1050330 rows and we check again the columns with missing values.
   
 
 We impute the empty sales data with the same values of the last year (July 2013-January 2014).  For the columns "CompetitionDistance", "StoreType" and "Assortment" we take the last values of each store, since these are static variables. First, it is necessary to create new columns with the last year sales using the shift function and then we fill the missing sales, customers, open, promo and holidays values with the values of the previous year columns. We plot the sales for the same store after filling:
