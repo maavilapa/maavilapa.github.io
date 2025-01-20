@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Time series Forecasting with Pytorch Forecasting and Darts
-description:  Advanced deep learning models, such as Temporal Fusion Transformers (TFT), are highly effective for complex multivariate time series forecasting. TFT is user friendly in libraries like PyTorch Forecasting or Darts, providing essential functions for plotting and interpreting predictions.
-img: assets/img/project3/fig_15.jpg
+title: Time Series Forecasting
+description:  Advanced DL models, such as Temporal Fusion Transformers (TFT), are highly effective for complex multivariate time series forecasting. TFT is user friendly in libraries like PyTorch Forecasting or Darts, providing essential functions for plotting and interpreting predictions.
+img: assets/img/project3/start.jpg
 importance: 3
 category: work
 related_publications: false

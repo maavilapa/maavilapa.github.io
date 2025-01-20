@@ -5,7 +5,7 @@ permalink: /projects/
 description: List of main projects I have worked on
 nav: true
 nav_order: 3
-display_categories: [work, study, fun]
+display_categories: [study,work, fun]
 horizontal: false
 ---
 
