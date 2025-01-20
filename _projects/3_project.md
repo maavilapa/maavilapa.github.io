@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Time series Forecasting with Pytorch Forecasting and Darts
-description:  Advanced deep learning models, such as Temporal Fusion Transformers (TFT), are highly effective for complex multivariate time series forecasting, offering significant performance improvements. TFT is user friendly in libraries like PyTorch Forecasting or Darts, providing essential functions for plotting and interpreting predictions. When combined with tools like TensorBoard, TensorFlow Data Validation, and FeatureWiz, a flexible pipeline can be created to process, feature-engineer, and predict time series data, making it ideal for datasets like Rossmann store sales, where historical sales, promotions, and client information are leveraged for accurate forecasts..
+description:  Advanced deep learning models, such as Temporal Fusion Transformers (TFT), are highly effective for complex multivariate time series forecasting. TFT is user friendly in libraries like PyTorch Forecasting or Darts, providing essential functions for plotting and interpreting predictions.
 img: assets/img/project2/APC.gif
 importance: 3
 category: work
@@ -9,104 +9,51 @@ related_publications: false
 ---
 
 
-<h1 align='center'>Time series forecasting with Temporal Fusion Transformer (TFT) in Rossman store sales dataset</h1>
+<h2 align='center'>Time series forecasting with Temporal Fusion Transformer (TFT) in Rossman store sales dataset</h2>
 
-<p align="center">
-  <img src="assets/img/project2/fig_8.jpg" width=1300>
-</p>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project3/fig_8.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
+</div>
 
 ## Business case
-Most advanced methods applied on time series include deep learning models, specially for complex multivariate forecasting problems. One of them, the Temporal fusion
-transformers (TFT), has demonstrated significant performance improvements over existing benchmarks and is currently one of the most accurate methods in forecasting. Although it is an advanced model, its implementation in the pytorch_forecasting library is user friendly and provides all the necessary functions to plot and interpret the model predictions. Besides, if it is combined with tools like tensorboard, tensorflow data validation and featurewiz, we can create a pipeline to prepare, add features and predict data in time series datasets in a flexible and understandable way. 
+Most advanced methods applied on time series include deep learning models, specially for complex multivariate forecasting problems. One of them, the Temporal fusion transformers (TFT), has demonstrated significant performance improvements over existing benchmarks and is currently one of the most accurate methods in forecasting. Although it is an advanced model, its implementation in the pytorch_forecasting library is user friendly and provides all the necessary functions to plot and interpret the model predictions. Besides, if it is combined with tools like tensorboard, tensorflow data validation and featurewiz, we can create a pipeline to prepare, add features and predict data in time series datasets in a flexible and understandable way. 
 
 I will show this process using the Rossman store sales dataset, one of the open timeseries datasets available in Kaggle. We are provided with historical sales data for 1,115 Rossmann stores, using not just the sales historical of each store, but information about promotions, number of clients and holidays. Some stores in the dataset were temporarily closed for refurbishment and therefore, we have to clean the data and fill the missing values. The data frequency is daily and we have to predict the "Sales" for some of the stores given in the test set in the next 48 days. This is an interesting and useful AI application field because sellers could take advantage of this kind of predictions during their inventory planning, particularly when a lot of data about products sales and promotions in each store is available. 
 
-<p align="center">
-  <img src="https://github.com/maavilapa/TemporalFusionTransformerExample/blob/main/images/fig_0.png" width=600>
-</p>
-
-
-## Table of contents
-
-
-<details open>
-<a name="Table_contents"></a>
-<summary>Show/Hide</summary>
-<br>
-
-1. [ File Descriptions ](#File_Description)
-2. [ Technologies Used ](#Technologies_Used)    
-3. [ Summary ](#Summary)
-   * [ 1. EDA and Cleaning ](#EDA_and_Cleaning)
-       * [ Checking data types and missing values](#Checking_data_types_and_missing_values)
-       * [ Filling missing values](#Filling_missing_values)
-   * [ 2. Preprocessing ](#Preprocessing) 
-       * [ Scaling](#Scaling)
-       * [ Create test dataframe](#Create_test_dataframe)
-       * [ Date features](#Date_features)       
-   * [ 3. Training ](#Training)
-       * [ Training parameters](#Training_parameters)
-       * [ Create datasets](#Create_datasets)
-       * [ Hyperparameter tuning](#Hyperparameter_tuning)  
-       * [ Predictions on validation data](#Predictions_on_validation_data)
-       * [ Training and validation plots](#Training_and_validation_plots)
-       * [ Interpret output](#Interpret_output)
-       * [ Predict on test data](#Predict_on_test_data)
-  * [ 4. Future improvements](#Future_improvements)
-
-</details>
-
-## File descriptions
-
-<details>
-<a name="File_Description"></a>
-<summary>Show/Hide</summary>
-<br>
-    
-* <strong>[ data ](https://github.com/maavilapa/TemporalFusionTransformerExample/data)</strong>: folder containing all data files
-    * <strong>sample_submission.csv</strong>: a sample submission file in the correct format
-    * <strong>store.csv</strong>:  supplemental information about the stores
-    * <strong>test.csv</strong>:  historical data excluding Sales
-    * <strong>train.csv</strong>:  historical data including Sales
-
-* <strong>[ images ](https://github.com/maavilapa/TemporalFusionTransformerExample/images)</strong>: folder containing images used for README and preparation notebook
-* <strong>[ preparation](https://github.com/maavilapa/TemporalFusionTransformerExample/preparation)</strong>: Functions used in the data preparation notebook used for preprocessing and training the model. 
-* <strong>[ 1-2. Data preparation](https://github.com/maavilapa/TemporalFusionTransformerExample/1-2._Data_preparation.ipynb)</strong>: Notebook with all the data preparation, model training and predictions process.
-</details>
-
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/project2/fig_0.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Simulation of our setup in Gazebo and the real setup in LabSIR at the National University of Colombia in Bogotá.
+</div>
 
 
 ## Technologies used
-<details>
-<a name="Technologies_Used"></a>
-<summary>Show/Hide</summary>
-<br>
     
-* <strong>Python</strong>
-* <strong>Pandas</strong>
-* <strong>Numpy</strong>
-* <strong>Matplotlib</strong>
-* <strong>tensorflow</strong>
-* <strong>tensorboard</strong>
-* <strong>pytorch_lightning</strong>
-* <strong>Scikit-Learn</strong>
-* <strong>pytorch_forecasting</strong>
+- <strong>Python</strong>
+- <strong>Pandas</strong>
+- <strong>Numpy</strong>
+- <strong>Matplotlib</strong>
+- <strong>tensorflow</strong>
+- <strong>tensorboard</strong>
+- <strong>pytorch_lightning</strong>
+- <strong>Scikit-Learn</strong>
+- <strong>pytorch_forecasting</strong>
 
-</details>
-
-## Summary
-<a name="Summary"></a>
-<br>
 
 ### 1. EDA and Cleaning
-<a name="EDA_and_Cleaning"></a>
-
 #### 1.1. Checking data types and missing values
-
-<a name="Checking_data_types_and_missing_values"></a>
 
   
 The first step is to import the necessary libraries defined in the requirements.txt file and to download the train.csv and store.csv files as pandas dataframes. Using tensorflow data validation we could check the data type for each column in both Train and Store dataframes, the percentage of zeros, missing values and more statistical information of each column.
+
 <p align="center">
   <img src="https://github.com/maavilapa/TemporalFusionTransformerExample/blob/main/images/fig_1.PNG" width=600>
 </p>
@@ -116,10 +63,13 @@ The first step is to import the necessary libraries defined in the requirements.
 <p align="center">
   <img src="https://github.com/maavilapa/TemporalFusionTransformerExample/blob/main/images/fig_3.PNG" width=600>
 </p>
+
 For categorical features we can check not just the missing values, but also the Top value and the unique values.
+
 <p align="center">
   <img src="https://github.com/maavilapa/TemporalFusionTransformerExample/blob/main/images/fig_4.PNG" width=600>
 </p>
+
 We found that Promo2SinceYear, Promo2SinceWeek, CompetitionOpenSinceMonth, CompetitionOpenSinceYear and PromoInterval have more than 30% of missing values. CompetitionDistance has 0.26% of missing values. We will drop the first two columns and fill the missing values in the CompetitionDistance column to use it as a training feature. We merge the Train and Store dataframes. We check the number of missing values by columns using the next line: 
   
 ```bash
@@ -174,11 +124,9 @@ This way we verify that all the stores have all their historical data filled.
 <br>
 
 ### 2. Preprocessing 
-<a name="Preprocessing"></a>
-
 The next step after filling and cleaning the data is to normalize the target and to add new features that could help improving the accuracy of the predictions. Since the forecast_horizon is 48 days and we already have the data for each day, we don't have to resample the dataframe to weekly or monthly sales. 
+
 #### 2.1. Scaling
-<a name="Scaling"></a>
 We first scale the sales for each store between -1 a 1 with the min max scaler of Scikit learn. Now if we plot the sales for the same store we see that the range is between -1 a 1. 
   
 <p align="center">
@@ -192,7 +140,6 @@ We add a time_idx column necessary for training with temporal fusion transformer
 </p>
   
 #### 2.2. Create test dataframe
-<a name="Create_test_dataframe"></a>
 We check if all the stores have the same prediction length for the test data. Then we merge the store columns with the test data and fill the missing values of the Open column using a dictionary for weekdays and weekends.    
 
 ```bash
@@ -201,21 +148,17 @@ test_data.Open=test_data.Open.fillna(test_data.DayOfWeek.map(open_dict))
 ```
   
 #### 2.3. Date features
-<a name="Date_features"></a>
 One of the main advantages of TFT is that it supports mixed covariates (includes past covariates known like sales promotions and weather features, and future covariates like temporal features, holidays and StoreOpen column). Therefore, we use the Featurewiz library to add data features like 'quarter', 'is_summer', 'is_winter', 'dayofmonth' and 'weekofyear', since these features could help the model recognize trends and seasonalities.
 
 ```bash
 data, ts_adds_in = FW.FE_create_time_series_features(data, ts_column, ts_adds_in=[])
 ```
-<br>
+
 
 ### 3. Training
-<a name="Training"></a>
-<br>
 
 
 #### 3.1. Training parameters
-<a name="Training_parameters"></a>
 We use a dictionary called params_dict to set the training parameters and then we split the data into test and train datasets. TFT implementation in pytorch_forecasting allows us to add categorical features by encoding them with the scikit's learn default LabelEncoder. To define the timeseries dataset class we have to specify which variables are numerical or categorical and known in the future (like date features or sales promotions) and which are numerical or categorical but unknown in the future (like the number of customers in the store). The test data given in kaggle shows the next 48 days as the prediction interval, so we define our forecast_horizon (decoder length) as 48 and the input_window, wich represents the lenght of the TFT encoder, as 96 days. This means that the model will use a window of 96 days to predict the next 48 days. As a rule it is better to use an input window greater than the forecast horizon.
 
 ```bash
@@ -235,7 +178,6 @@ n_stores=data.Store.nunique()
 ```
   
 #### 3.2. Create datasets
-<a name="Create_datasets"></a>
 In the main training function, we create the training and validation dataloaders in the pytorch forecasting format and make some baseline predictions. The training_cutoff is the time index where the dataset is going to be split into training and validation sets. In this case, we take the last 48 days as validation dataset and leave the rest days for training. To check if the datasets were configured correctly we can look at the data parameter of each dataset, which is a dictionary that contains the different parameters previously defined as tensors. We check that the last value of the time_idx for the training dataset is 893 in this case.
 
 ```bash
@@ -262,7 +204,6 @@ print("Baseline error median: ",(actuals - baseline_predictions).abs().median().
 </p>
   
 #### 3.3. Hyperparameter tuning
-<a name="Hyperparameter_tuning"></a>
 We tune the temporal fusion transformer using 50 epochs and 15 trials, using the next possible range of hyperparameters (the ones set by default):
 
 <p align="center">
@@ -277,7 +218,6 @@ After 3 hours it finishes and with <strong>verbose=1</strong> it will show after
   
 
 #### 3.4. Predictions on validation data
-<a name="Predictions_on_validation_data"></a>
 We load the best model trained using the load_from_checkpoint function  at the epoch where the validaion loss was the lowest and we use the predict function in raw mode to get not only the predictions but also the attention given to the time indexes in the validation dataset and the real values for each store sales in this dataset. Besides, we plot the predictions of the validation set vs the real sales for each score and save these plots in the logs folder so we can check the results for each store in tensorboard. 
   
 ```bash
@@ -308,7 +248,6 @@ print("Error median: ",(actuals -aux[3].values.reshape(n_stores,params_dict["for
 
 
 #### 3.5. Training and validation plots
-<a name="Training_and_validation_plots"></a>
 If you want to check in the notebook the best hyperparameters found during the hyperparameter tuning you just have to execute the next line:
   
 ```bash
@@ -366,7 +305,6 @@ Finally, one of the most important plot we can find in tensorboard thanks to the
 From the predictions it can be seen that the model takes into account the days when the stores are closed as well as the trends for each day and week depending on the store. However, for some cases it underestimates sales, probably because the information from the second promotion was not included in the dataset.
 
 #### 3.6. Interpret output
-<a name="Interpret_output"></a>
 Temporal fusion transformer model has a Variable selection network and with the pytorch forecasting functions we can plot the importance of each Categorical and real feature both for the encoder and decoder. Besides, it has an Attention mechanism that decides which are the most important past time indexes to take into account during training and its plot is also included when we run the next to lines:
 
 ```bash
@@ -385,7 +323,6 @@ best_tft.plot_interpretation(interpretation)
 From the first plot, which shows the attention given to each time index in the encoder, we can see which days were the most important in the sales history in general for all the stores. Regarding the encoder features, the most important is the sales columns, followed by the DayOfWeek, promotions and Open, which indicates if the store was open. In the decoder, the most important variables the Open flag, DayOfWeek and Promo columns. This was expected, since it is clear that when the store is closed there are no sales and that these sales depend a lot on the day of the week and promotions.
 
 #### 3.7. Predict on test data
-<a name="Predict_on_test_data"></a>
 Then we take the same model and predict the sales for the next 48 days and stores defined in the test_data, save them in a dataframe called predict and add the Store and time_idx columns. 
 
 ```bash
@@ -418,14 +355,10 @@ predict[predict.Store == "1.0"].set_index("timestamp")[["p50"]].plot()
 The last step is to clean and format the prediction DataFrame to the sample_submission format given in Kaggle. To do that, we take only the positive predictions and set to zero the ones that are negatives, merge the predict dataframe with the test data Id and make the submission. 
   
 ## 4. Future improvements
-<a name="Future_improvements"></a>
 With the preparation of the data and the training of the model, an accuracy of 0.10573 was achieved in the public test dataset, while the accuracy of the lead team is 0.08932. So this is a very good result and it can be further improved. The process that I explained is only one of the possible ways to prepare and train the dataset, and I explain it and teach it only for academic reasons. There are a few options we can try to improve accuracy:
 
-*   Take all the given columns in the Store dataset.
-*   Fill in the missing sales values in some stores not with the values of the previous year but with the values of previous months or using strategies such as Moving Average.
-*   Normalize the data using a different strategy.
-*   Add other external variables that can affect sales.
-*   Do hyperparameter tuning with more epochs or more trials.
-
-<br>
-<strong>LinkedIn:</strong> www.linkedin.com/in/mateoavila
+-   Take all the given columns in the Store dataset.
+-   Fill in the missing sales values in some stores not with the values of the previous year but with the values of previous months or using strategies such as Moving Average.
+-   Normalize the data using a different strategy.
+-   Add other external variables that can affect sales.
+-   Do hyperparameter tuning with more epochs or more trials.
